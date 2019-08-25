@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: todo-web-service
+    tier: api
+  name: todo-web-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-web-service
+      tier: api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: todo-web-service
+        tier: api
+    spec:
+      containers:
+      - image: gcr.io/red-height-250112/todo-web-service
+        name: todo-web-service
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
